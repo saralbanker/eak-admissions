@@ -1,0 +1,305 @@
+/* Self-hosted fonts (latin subset). Files are copied by scripts/copy-fonts.mjs. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../assets/fonts/inter-latin-var.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/merriweather-latin-700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ *
+ * Base
+ * ------------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Sticky header is 4rem (mobile) / 5rem (desktop): keeps anchor targets visible. */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-slate-50 font-sans text-slate-800 antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand-600 text-white;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-600 ring-offset-2;
+  }
+
+  /* On dark surfaces the ring needs a light colour to stay visible. */
+  .on-dark :focus-visible {
+    @apply ring-accent-400 ring-offset-brand-900;
+  }
+  .on-dark .on-light :focus-visible {
+    @apply ring-brand-600 ring-offset-white;
+  }
+
+  dialog::backdrop {
+    @apply bg-slate-950/70 backdrop-blur-sm;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Components (design tokens live here so markup stays readable)
+ * ------------------------------------------------------------------ */
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-y {
+    @apply py-16 md:py-24;
+  }
+
+  /* Section header trio: eyebrow / title / lead */
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-widest text-brand-600;
+  }
+  .on-dark .eyebrow {
+    @apply text-accent-400;
+  }
+  /* A white card sitting inside a dark section (e.g. the hero form) opts back out. */
+  .on-dark .on-light .eyebrow {
+    @apply text-brand-600;
+  }
+  .section-title {
+    @apply mt-2 font-serif text-3xl font-bold text-slate-900 sm:text-4xl;
+  }
+  .on-dark .section-title {
+    @apply text-white;
+  }
+  .section-lead {
+    @apply mt-3 text-base text-slate-600;
+  }
+  .on-dark .section-lead {
+    @apply text-slate-300;
+  }
+  .section-head {
+    @apply mx-auto mb-12 max-w-3xl text-center md:mb-14;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold transition focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply bg-accent-500 font-bold text-slate-950 shadow-lg shadow-accent-500/20 hover:-translate-y-0.5 hover:bg-accent-600;
+  }
+  .btn-brand {
+    @apply bg-brand-600 text-white shadow hover:bg-brand-700;
+  }
+  .btn-soft {
+    @apply bg-brand-50 text-brand-700 hover:bg-brand-100;
+  }
+  .btn-light {
+    @apply bg-white font-bold text-brand-900 shadow-lg hover:bg-slate-100;
+  }
+  .btn-glass {
+    @apply border border-white/25 bg-white/10 text-white backdrop-blur hover:bg-white/20;
+  }
+  .btn-sm {
+    @apply rounded-lg px-3.5 py-2 text-xs;
+  }
+
+  /* Surfaces */
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+  .card-hover {
+    @apply transition-shadow duration-200 hover:shadow-md;
+  }
+  .icon-tile {
+    @apply flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600;
+  }
+
+  /* Forms */
+  .field-label {
+    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-600;
+  }
+  .field-input {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/40;
+  }
+  .field-input[aria-invalid='true'] {
+    @apply border-red-600 focus:border-red-600 focus:ring-red-600/30;
+  }
+  .field-error {
+    @apply mt-1 min-h-[1rem] text-xs font-medium text-red-700;
+  }
+
+  /* Nav */
+  .nav-link {
+    @apply rounded-md px-1 py-1 transition-colors hover:text-brand-600;
+  }
+  .nav-link[aria-current='location'] {
+    @apply font-semibold text-brand-700 underline decoration-accent-500 decoration-2 underline-offset-8;
+  }
+
+  /* Pills / chips */
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Admission process: connected 5-step progression
+ *   mobile  -> vertical stubs between cards
+ *   sm      -> 2-column grid, no connectors
+ *   lg      -> horizontal arrows between cards
+ * ------------------------------------------------------------------ */
+.step {
+  position: relative;
+}
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 2.2rem;
+  bottom: -1rem;
+  width: 2px;
+  height: 1rem;
+  background: #93c5fd;
+}
+@media (min-width: 640px) {
+  .step:not(:last-child)::after {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  .step:not(:last-child)::after {
+    display: block;
+    left: auto;
+    bottom: auto;
+    top: 3.4rem;
+    right: -1.6rem;
+    width: 1.1rem;
+    height: 2px;
+  }
+  .step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    top: calc(3.4rem - 4px);
+    right: -1.75rem;
+    border: 5px solid transparent;
+    border-left: 8px solid #93c5fd;
+    border-right: 0;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * FAQ accordion: animated height without JS measuring
+ * ------------------------------------------------------------------ */
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.25s ease, visibility 0s linear 0.25s;
+}
+.faq-panel[data-open='true'] {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.25s ease, visibility 0s;
+}
+.faq-panel > div {
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------------ *
+ * Fee table: stacks into cards on small screens
+ * ------------------------------------------------------------------ */
+@media (max-width: 767px) {
+  .fee-table thead {
+    @apply sr-only;
+  }
+  .fee-table,
+  .fee-table tbody,
+  .fee-table tr,
+  .fee-table td {
+    display: block;
+    width: 100%;
+  }
+  .fee-table tr[hidden] {
+    display: none;
+  }
+  .fee-table tr.fee-row {
+    @apply border-b border-slate-200 px-4 py-4;
+  }
+  .fee-table td {
+    @apply flex items-center justify-between gap-4 px-0 py-1.5 text-right;
+  }
+  .fee-table td::before {
+    content: attr(data-label);
+    @apply text-left text-xs font-semibold uppercase tracking-wide text-slate-500;
+  }
+  .fee-table td.fee-grade {
+    @apply justify-start text-left;
+  }
+  .fee-table td.fee-grade::before {
+    content: none;
+  }
+  .fee-table td.fee-actions {
+    @apply justify-end pt-3;
+  }
+  .fee-table td.fee-actions::before {
+    content: none;
+  }
+}
+
+/* Scroll-snap row for testimonials on phones */
+.snap-row {
+  scrollbar-width: none;
+}
+.snap-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* ------------------------------------------------------------------ *
+ * Print: "Print checklist" prints only the required-documents card
+ * ------------------------------------------------------------------ */
+@media print {
+  body.printing-documents * {
+    visibility: hidden !important;
+  }
+  body.printing-documents #documents,
+  body.printing-documents #documents * {
+    visibility: visible !important;
+  }
+  body.printing-documents #documents {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    box-shadow: none;
+    border: 0;
+  }
+  body.printing-documents .no-print {
+    display: none !important;
+  }
+}
