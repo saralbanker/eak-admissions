@@ -168,6 +168,37 @@
   .chip {
     @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold;
   }
+
+  .facility-frame {
+    position: relative;
+  }
+  .facility-video,
+  .facility-fallback {
+    position: absolute;
+    inset: 0;
+  }
+  .facility-video {
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .facility-fallback {
+    z-index: 0;
+    transition: opacity 200ms ease, transform 300ms ease;
+  }
+  .card.is-playing .facility-video {
+    opacity: 1;
+  }
+  .card.is-playing .facility-fallback {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video,
+    .facility-video {
+      display: none;
+    }
+  }
 }
 
 /* ------------------------------------------------------------------ *

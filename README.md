@@ -56,7 +56,7 @@ Each section is a `<section>` with its own `id` and `aria-labelledby`, in PRD or
 | 02 | Why choose us | `#why-us` | 6 differentiators with icons |
 | 03 | Academic programs | `#programs` | Primary, Middle, Secondary, Senior Secondary; ages, features, pre-filled enquiry CTA |
 | 04 | School highlights | `#highlights` | 25+ years, 12,500+ alumni, 180+ faculty, 35+ activities |
-| 05 | Facilities | `#facilities` | 6 image cards (responsive `srcset`, explicit dimensions) |
+| 05 | Facilities | `#facilities` | 6 facility cards with local stock videos on hover/focus and responsive photo fallbacks |
 | 06 | Admission process | `#admission-process` | 5 connected steps (arrows on desktop, timeline on mobile) with a live "Open now / Completed" state |
 | 07 | Important dates | `#dates` | Status per milestone, deadline countdown + progress bar, "Add all to calendar" (.ics) |
 | 08 | Required documents | `#documents` | Check-icon checklist that is also interactive: progress saved locally, printable |

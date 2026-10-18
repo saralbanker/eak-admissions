@@ -85,12 +85,13 @@
       data.facilities
         .map(
           (f) => `
-        <li class="card group overflow-hidden">
-          <div class="aspect-[3/2] overflow-hidden bg-slate-200">
+        <li class="card group overflow-hidden" tabindex="0">
+          <div class="facility-frame aspect-[3/2] overflow-hidden bg-slate-200">
+            <video class="facility-video h-full w-full object-cover" muted loop playsinline preload="none" poster="assets/img/${f.img}-800.jpg" aria-hidden="true" data-hover-video data-video-src="${esc(f.video)}"></video>
             <img src="assets/img/${f.img}-800.jpg" srcset="assets/img/${f.img}-480.jpg 480w, assets/img/${f.img}-800.jpg 800w"
               sizes="(min-width:1024px) 384px, (min-width:640px) 50vw, 100vw" width="${f.w}" height="${f.h}"
               alt="${esc(f.alt)}" decoding="async"
-              class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              class="facility-fallback h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
           </div>
           <div class="p-5">
             <h3 class="text-lg font-bold text-slate-900">${esc(f.title)}</h3>
