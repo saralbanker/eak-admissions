@@ -20,7 +20,6 @@
   <!-- Self-hosted fonts, preloaded so text renders in the final face without a shift -->
   <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/merriweather-latin-700.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" as="image" href="assets/img/hero-900.jpg" imagesrcset="assets/img/hero-900.jpg 900w, assets/img/hero-1600.jpg 1600w" imagesizes="100vw" fetchpriority="high" />
 
   <!-- Compiled + purged Tailwind build (npm run build:css) -->
   <link rel="stylesheet" href="css/styles.css" />
@@ -101,6 +100,9 @@
       <img src="assets/img/hero-900.jpg" srcset="assets/img/hero-900.jpg 900w, assets/img/hero-1600.jpg 1600w" sizes="100vw"
         width="1600" height="996" alt="" fetchpriority="high" decoding="async"
         class="absolute inset-0 h-full w-full object-cover" />
+      <video class="hero-video absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline preload="auto" aria-hidden="true" poster="assets/img/hero-1600.jpg">
+        <source src="assets/video/optimized/classroom.mp4" type="video/mp4" />
+      </video>
       <div class="absolute inset-0 bg-gradient-to-r from-brand-950/95 via-brand-900/80 to-brand-900/40" aria-hidden="true"></div>
       <div class="absolute inset-0 opacity-20 [background-image:radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px]" aria-hidden="true"></div>
 
