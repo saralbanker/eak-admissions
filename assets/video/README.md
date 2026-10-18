@@ -1,12 +1,10 @@
 # Stock video sources
 
-These locally hosted, compressed MP4s were adapted from Pexels clips:
+The page streams these MP4s from Pexels when needed. The hero requests its clip on page load; facility clips are requested only when their card is hovered or focused. Static local posters remain visible if a clip cannot load.
 
-- `optimized/classroom.mp4` — [Students doing their schoolwork](https://www.pexels.com/video/students-doing-their-schoolwork-5200020/)
-- `optimized/labs.mp4` — [Science laboratory](https://www.pexels.com/video/science-laboratory-7605345/)
-- `optimized/library.mp4` — [Students studying in a library](https://www.pexels.com/video/students-studying-in-a-library-8499673/)
-- `optimized/sports.mp4` — [Kids playing basketball](https://www.pexels.com/video/kids-playing-basketball-8337131/)
-- `optimized/transport.mp4` — [School bus parking](https://www.pexels.com/video/school-bus-parking-10354217/)
-- `optimized/cafeteria.mp4` — [Students eating at a cafeteria](https://www.pexels.com/video/students-eating-at-a-cafeteria-6390319/)
-
-The clips are trimmed and encoded locally at 720p with H.264, muted, and optimized for browser playback. No Pexels requests are made when the page runs.
+- Classroom / hero: https://www.pexels.com/video/students-doing-their-schoolwork-5200020/
+- Science lab: https://www.pexels.com/video/science-laboratory-7605345/
+- Library: https://www.pexels.com/video/students-studying-in-a-library-8499673/
+- Basketball: https://www.pexels.com/video/kids-playing-basketball-8337131/
+- Transport: https://www.pexels.com/video/school-bus-parking-10354217/
+- Cafeteria: https://www.pexels.com/video/students-eating-at-a-cafeteria-6390319/

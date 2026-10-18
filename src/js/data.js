@@ -121,7 +121,7 @@
     facilities: [
       {
         img: 'classroom',
-        video: 'assets/video/optimized/classroom.mp4',
+        video: 'https://videos.pexels.com/video-files/5200020/5200020-hd_1920_1080_25fps.mp4',
         w: 800,
         h: 450,
         alt: 'Bright classroom with rows of desks facing a green board',
@@ -130,7 +130,7 @@
       },
       {
         img: 'labs',
-        video: 'assets/video/optimized/labs.mp4',
+        video: 'https://videos.pexels.com/video-files/7605345/7605345-hd_1920_1080_30fps.mp4',
         w: 800,
         h: 533,
         alt: 'Laboratory glassware and a pipette on a science lab bench',
@@ -139,7 +139,7 @@
       },
       {
         img: 'library',
-        video: 'assets/video/optimized/library.mp4',
+        video: 'https://videos.pexels.com/video-files/8499673/8499673-hd_1920_1080_30fps.mp4',
         w: 800,
         h: 533,
         alt: 'Floor-to-ceiling library shelves filled with books',
@@ -148,7 +148,7 @@
       },
       {
         img: 'sports',
-        video: 'assets/video/optimized/sports.mp4',
+        video: 'https://videos.pexels.com/video-files/8337131/8337131-hd_1920_1080_30fps.mp4',
         w: 800,
         h: 522,
         alt: 'Basketball dropping through a hoop in an indoor court',
@@ -157,7 +157,7 @@
       },
       {
         img: 'transport',
-        video: 'assets/video/optimized/transport.mp4',
+        video: 'https://videos.pexels.com/video-files/10354217/10354217-hd_1920_1080_30fps.mp4',
         w: 800,
         h: 533,
         alt: 'Modern air-conditioned coach bus parked at sunset',
@@ -166,7 +166,7 @@
       },
       {
         img: 'cafeteria',
-        video: 'assets/video/optimized/cafeteria.mp4',
+        video: 'https://videos.pexels.com/video-files/6390319/6390319-hd_1920_1080_25fps.mp4',
         w: 800,
         h: 600,
         alt: 'Spacious, naturally lit dining hall with wooden tables',
