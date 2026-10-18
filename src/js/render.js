@@ -144,6 +144,9 @@
     next: 'bg-accent-500/15 text-amber-800 ring-1 ring-accent-500/40',
   };
 
+  /* Hero status pill, by admission phase (see dates.countdown). */
+  const HERO_STATUS = { before: 'Admissions Opening Soon', open: 'Admissions Open', between: 'Phase 1 Closed', closed: 'Admissions Closed' };
+
   function statusLine(m) {
     if (m.status === 'done') return `<span class="text-slate-500">Completed</span>`;
     if (m.status === 'live') return `<span class="font-semibold text-emerald-700">Open now</span>`;
@@ -183,9 +186,9 @@
     );
 
     const hero = $('hero-deadline');
-    if (hero) {
-      hero.textContent = c.open ? c.headline : 'Admissions Open';
-    }
+    if (hero) hero.textContent = c.headline;
+    const status = $('hero-status');
+    if (status) status.textContent = `${HERO_STATUS[c.phase]} • Academic Session ${data.school.session}`;
   }
 
   /* ------------------------------------------------------------ 08 Documents */

@@ -84,7 +84,7 @@
       if (left === 1) headline = 'Phase 1 applications close tomorrow';
       if (left === 0) headline = 'Phase 1 applications close today';
       if (now < op) headline = `Applications open in ${daysBetween(now, op)} days`;
-      return { headline, short: left === 0 ? 'Closes today' : `${left} day${left === 1 ? '' : 's'} left`, progress: now < op ? 0 : progress, open: true };
+      return { headline, short: left === 0 ? 'Closes today' : `${left} day${left === 1 ? '' : 's'} left`, progress: now < op ? 0 : progress, open: true, phase: now < op ? 'before' : 'open' };
     }
 
     const next = milestones.find((m) => parse(m.activeUntil || m.end || m.start) >= now);
@@ -95,9 +95,10 @@
         short: 'Phase 1 closed',
         progress: 100,
         open: false,
+        phase: 'between',
       };
     }
-    return { headline: 'Admissions for this session are closed. Enquire about the next intake.', short: 'Closed', progress: 100, open: false };
+    return { headline: 'Admissions for this session are closed. Enquire about the next intake.', short: 'Closed', progress: 100, open: false, phase: 'closed' };
   }
 
   /** Which of the 5 admission steps is "current" today (array of indexes), plus done ones. */

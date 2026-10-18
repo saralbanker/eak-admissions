@@ -334,4 +334,11 @@
   body.printing-documents .no-print {
     display: none !important;
   }
+  /* Hide every other section outright: hidden-but-present content would otherwise leave blank pages. */
+  body.printing-documents > *:not(main) {
+    display: none !important;
+  }
+  body.printing-documents section:not(#documents) {
+    display: none !important;
+  }
 }
