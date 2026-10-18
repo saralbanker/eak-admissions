@@ -68,7 +68,7 @@ Each section is a `<section>` with its own `id` and `aria-labelledby`, in PRD or
 ## 4. Technologies
 
 - **HTML5** semantic landmarks (`header`, `nav`, `main`, `section`, `article`, `footer`, native `<dialog>`).
-- **Tailwind CSS 3** compiled with the CLI (no runtime CDN script), with a small component layer in `src/input.css`.
+- **Tailwind CSS 4** compiled with the CLI (no runtime CDN script), with a small component layer in `src/input.css`. Its browser baseline is Safari 16.4+, Chrome 111+, and Firefox 128+.
 - **Vanilla JavaScript (classic scripts, no framework)**, so the page opens from `file://` without a server.
 - **Self-hosted fonts** (Inter, Merriweather), so there is no render-blocking third-party stylesheet.
 
